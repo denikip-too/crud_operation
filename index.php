@@ -6,19 +6,23 @@ function get_all_data($conn){
     if(mysqli_num_rows($get_data) > 0){
         echo '<table>
               <tr>
+                <th>Id</th>
                 <th>First Name</th>
                 <th>Second Name</th>
                 <th>Username</th>
-                <th>Email</th> 
+                <th>Email</th>
+                <th>Registration Date</th>
                 <th>Action</th> 
               </tr>';
         while($row = mysqli_fetch_assoc($get_data)){
 
             echo '<tr>
+            <td>'.$row['id'].'</td>
             <td>'.$row['First_name'].'</td>
             <td>'.$row['Second_name'].'</td>
             <td>'.$row['username'].'</td>
             <td>'.$row['user_email'].'</td>
+            <td>'.$row['Registration_date'].'</td>
             <td>
             <a href="update.php?id='.$row['id'].'">Edit</a> |
             <a href="delete.php?id='.$row['id'].'">Delete</a>
